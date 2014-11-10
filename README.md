@@ -12,6 +12,21 @@ Requirements
   * bash, git, rails, thin, production environment assumed
   * thin server config located in #{Rails.root}/config/thin.yml 
 
+Installation
+------------
+```bash
+#download script
+wget https://raw.githubusercontent.com/aufi/dotdeploy/master/dotdeploy
+
+#[if needed]
+#add execute priviledge
+chmod +x dotdeploy
+
+#[if needed]
+#move to some directory included in $PATH
+sudo mv dotdeploy /usr/local/bin
+```
+
 Source
 ------
 ```bash
