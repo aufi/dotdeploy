@@ -10,7 +10,7 @@ Initially published at https://gist.github.com/aufi/488b0f7e4d56e624618f
 Requirements
 ------------
   * bash, git, rails, thin, production environment assumed
-  * thin server config located in #{Rails.root}/config/thin.yml 
+  * thin server config located in #{Rails.root}/config/thin.yml
 
 Installation
 ------------
@@ -49,13 +49,13 @@ echo "[2] running bundle to install deps..."
 bundle install
 
 echo "[3] migrating schema..."
-rake db:migrate
+bundle exec rake db:migrate
 
 echo "[4] compiling assets..."
-rake assets:precompile
+bundle exec rake assets:precompile
 
 echo "[5] restarting application server"
-thin -d -C ./config/thin.yml restart
+bundle exec thin -d -C ./config/thin.yml restart
 
 echo "..deploy completed."
 
