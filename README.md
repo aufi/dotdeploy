@@ -37,25 +37,28 @@ Source
 # See more at https://github.com/aufi/dotdeploy
 #
 set -e
- 
+
 export RAILS_ENV='production'
- 
+
 echo "Starting local deploy for $RAILS_ENV..."
- 
+
 echo "[1] updating sources..."
 git pull
- 
-echo "[2] migrating schema..."
+
+echo "[2] running bundle to install deps..."
+bundle install
+
+echo "[3] migrating schema..."
 rake db:migrate
- 
-echo "[3] compiling assets..."
+
+echo "[4] compiling assets..."
 rake assets:precompile
- 
-echo "[4] restarting application server"
+
+echo "[5] restarting application server"
 thin -d -C ./config/thin.yml restart
- 
+
 echo "..deploy completed."
- 
+
 exit 0
 ```
 
